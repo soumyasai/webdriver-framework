@@ -75,6 +75,12 @@ public class WebPage {
 
 	}
 
+	public void selectVisibleTextFromDropDown(WebDriver driver, String xpath1, String text) {
+		WebElement element = driver.findElement(By.xpath(xpath1));
+		Select s = new Select(element);
+		s.selectByVisibleText(text);
+	}
+
 	public void dragAndDrop(WebDriver driver, String sourceXpath, String targetXpath) {
 		WebElement sourceElement = driver.findElement(By.xpath(sourceXpath));
 		WebElement targetElement = driver.findElement(By.xpath(targetXpath));
@@ -94,6 +100,7 @@ public class WebPage {
 		Actions a = new Actions(driver);
 		a.doubleClick(element).build().perform();
 	}
+
 	public boolean isSelected(WebDriver driver, String xpathvalue) {
 		WebElement element = driver.findElement(By.xpath(xpathvalue));
 		return element.isSelected();
@@ -118,7 +125,6 @@ public class WebPage {
 		try {
 			FileUtils.copyFile(getScreenShotAsFile, new File(completeFilePath));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -131,6 +137,7 @@ public class WebPage {
 		driver.manage().window().maximize();
 	}
 
+	// pop up related window
 	public void switchToOtherWindow(WebDriver driver) {
 		String mainWindow = driver.getWindowHandle();
 		Set<String> allWindowHandles = driver.getWindowHandles();
@@ -141,6 +148,5 @@ public class WebPage {
 			}
 		}
 	}
-	
 
 }

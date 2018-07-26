@@ -12,7 +12,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 @CucumberOptions(
         features = "src/test/resources/stats/espnCricinfoStatsguru.feature",
         glue = {"com.ss.webdriverframework"},
-        tags = {"@edookati"},
+//        tags = {"@edookati"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
